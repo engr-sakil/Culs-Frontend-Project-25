@@ -1,3 +1,7 @@
+    const playerXInput = document.getElementById("playerX");
+    const playerOInput = document.getElementById("playerO");
+
+   
     const board = document.getElementById("board");
     const statusText = document.getElementById("status");
     const resetBtn = document.getElementById("reset");
@@ -39,7 +43,8 @@
     }
 
       if (checkWinner()) {
-        statusText.textContent = `🎉 Player ${currentPlayer} wins!`;
+        const winnerName = currentPlayer === "O" ? playerXInput.value || "Player 1" : playerOInput.value || "Player 2";
+        statusText.textContent = `🎉 ${winnerName} wins!`;
         gameActive = false;
         return;
       }
@@ -51,7 +56,10 @@
       }
 
       currentPlayer = currentPlayer === "X" ? "O" : "X";
-      statusText.textContent = `Player ${currentPlayer}'s turn`;
+        const nextName = currentPlayer === "X" ? playerXInput.value || "Player 1" : playerOInput.value || "Player 2";
+        const nextIcon = currentPlayer === "X" ? "🔵" : "❌";
+        statusText.textContent = `${nextName}'s turn (${nextIcon})`;
+
     }
 
     function checkWinner() {
