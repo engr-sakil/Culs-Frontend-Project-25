@@ -54,3 +54,12 @@
     #reset:hover {
       background-color: #555;
     }
+
+    /* Player icons */
+    .cell.blue::after {
+    content: "🔵";
+    }
+
+    .cell.red::after {
+    content: "❌";
+    }

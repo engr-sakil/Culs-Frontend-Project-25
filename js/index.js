@@ -32,7 +32,11 @@
       if (gameState[index] !== "" || !gameActive) return;
 
       gameState[index] = currentPlayer;
-      e.target.textContent = currentPlayer;
+      if (currentPlayer === "X") {
+        e.target.classList.add("red");
+    } else {
+        e.target.classList.add("blue");
+    }
 
       if (checkWinner()) {
         statusText.textContent = `🎉 Player ${currentPlayer} wins!`;
@@ -77,7 +81,7 @@
       currentPlayer = "X";
       statusText.textContent = "Player X's turn";
       Array.from(board.children).forEach(cell => {
-        cell.textContent = "";
+        cell.classList.remove("blue", "red");
         cell.style.backgroundColor = "white";
       });
     });
