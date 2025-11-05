@@ -5,6 +5,9 @@
     const board = document.getElementById("board");
     const statusText = document.getElementById("status");
     const resetBtn = document.getElementById("reset");
+    const startScreen = document.getElementById("startScreen");
+    const startBtn = document.getElementById("startBtn");
+    const restartBtn = document.getElementById("restart");
 
     let currentPlayer = "X";
     let gameActive = true;
@@ -37,13 +40,13 @@
 
       gameState[index] = currentPlayer;
       if (currentPlayer === "X") {
-        e.target.classList.add("red");
-    } else {
         e.target.classList.add("blue");
+    } else {
+        e.target.classList.add("red");
     }
 
       if (checkWinner()) {
-        const winnerName = currentPlayer === "O" ? playerXInput.value || "Player 1" : playerOInput.value || "Player 2";
+        const winnerName = currentPlayer === "X" ? playerXInput.value || "Player 1" : playerOInput.value || "Player 2";
         statusText.textContent = `🎉 ${winnerName} wins!`;
         gameActive = false;
         return;
@@ -87,9 +90,52 @@
       gameState = ["", "", "", "", "", "", "", "", ""];
       gameActive = true;
       currentPlayer = "X";
-      statusText.textContent = "Player X's turn";
+      const currentName = currentPlayer === "X" 
+        ? playerXInput.value || "Player 1" 
+        : playerOInput.value || "Player 2";
+        const currentIcon = currentPlayer === "X" ? "🔵" : "❌";
+        statusText.textContent = `${currentName}'s turn (${currentIcon})`;
+
       Array.from(board.children).forEach(cell => {
         cell.classList.remove("blue", "red");
         cell.style.backgroundColor = "white";
       });
     });
+
+    startBtn.addEventListener("click", () => {
+        const nameX = playerXInput.value.trim() || "Player 1";
+        const nameO = playerOInput.value.trim() || "Player 2";
+
+        if (!nameX || !nameO) return; // optional: require names
+
+        startScreen.style.display = "none";
+        board.style.display = "grid";
+        statusText.style.display = "block";
+        resetBtn.style.display = "inline-block";
+        restartBtn.style.display = "inline-block";
+
+        statusText.textContent = `${nameX}'s turn (🔵)`;
+        });
+
+    restartBtn.addEventListener("click", () => {
+  // Reset board
+  gameState = ["", "", "", "", "", "", "", "", ""];
+  gameActive = true;
+  currentPlayer = "X";
+  Array.from(board.children).forEach(cell => {
+    cell.classList.remove("blue", "red");
+    cell.style.backgroundColor = "white";
+  });
+
+  // Hide game elements, show start screen
+  board.style.display = "none";
+  statusText.style.display = "none";
+  resetBtn.style.display = "none";
+  restartBtn.style.display = "none";
+  startScreen.style.display = "flex";
+
+  // Clear input fields
+  playerXInput.value = "";
+  playerOInput.value = "";
+});
+

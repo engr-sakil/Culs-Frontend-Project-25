@@ -7,6 +7,9 @@
       height: 100vh;
       flex-direction: column;
     }
+    #board, #status, #reset, #restart {
+    display: none;
+    }
 
     h1 {
       margin-bottom: 20px;
@@ -39,20 +42,6 @@
     #status {
       margin-top: 20px;
       font-size: 1.2rem;
-    }
-
-    #reset {
-      margin-top: 10px;
-      padding: 8px 16px;
-      background-color: #333;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    #reset:hover {
-      background-color: #555;
     }
 
     /* Player icons */
@@ -99,3 +88,55 @@
         align-items: center;
         margin-bottom: 10px;
         }
+
+    #startScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+#startScreen button {
+  margin-top: 10px;
+}
+
+/* Common button style */
+button {
+  padding: 10px 20px;
+  margin: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Start Button */
+#startBtn {
+  background-color: #007bff; /* Blue */
+  color: white;
+}
+
+#startBtn:hover {
+  background-color: #0056b3;
+}
+
+/* Restart Button */
+#restart {
+  background-color: #28a745; /* Green */
+  color: white;
+}
+
+#restart:hover {
+  background-color: #1e7e34;
+}
+
+/* Optional: Reset button styling (already in your CSS) */
+#reset {
+  background-color: #333;
+  color: white;
+}
+#reset:hover {
+  background-color: #555;
+}
+
