@@ -19,3 +19,13 @@ Players can enter their custom names, and each player is represented with a uniq
 - Players take turns clicking empty cells to place their icon.
 - The game detects a win or draw automatically.
 - Use Reset to restart the round or Restart to enter new names.
+
+## Screenshots
+
+![App Screenshot](screenshots/Screenshot-1.png)
+
+![App Screenshot](screenshots/Screenshot-2.png)
+
+![App Screenshot](screenshots/Screenshot-3.png)
+
+![App Screenshot](screenshots/Screenshot-4.png)
