@@ -5,6 +5,8 @@
 
 A simple Tic Tac Toe web game built with HTML, CSS, and JavaScript.
 Players can enter their custom names, and each player is represented with a unique icon (🔵 / ❌).
+
+### Project Link: https://engr-sakil.github.io/Culs-Frontend-Project-25/
 ## Features
 - Enter custom player names before starting the game
 - Start screen with input fields and Start button
